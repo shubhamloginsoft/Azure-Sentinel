@@ -26,7 +26,7 @@
 			"name": "[variables('AzureSentinelConnectionName')]",
 			"location": "[resourceGroup().location]",
 			"properties": {
-				"customParameterValues": {},
+				"customParameterValues": {""},
 				"api": {
 					"id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azuresentinel')]"
 				}
@@ -39,7 +39,7 @@
 			"location": "[resourceGroup().location]",
 			"properties": {
 				"displayName": "[parameters('UserName')]",
-				"customParameterValues": {},
+				"customParameterValues": {""},
 				"api": {
 					"id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/ipqsfraudandriskscor')]"
                 }
@@ -61,7 +61,7 @@
                     "contentVersion": "1.0.0.0",
                     "parameters": {
                         "$connections": {
-                            "defaultValue": {},
+                            "defaultValue": {""},
                             "type": "Object"
                         }
                     },
@@ -115,7 +115,7 @@
                             }
                         },
                         "Entities_-_Get_Hosts": {
-                            "runAfter": {},
+                            "runAfter": {""},
                             "type": "ApiConnection",
                             "inputs": {
                                 "body": "@triggerBody()?['Entities']",
@@ -174,7 +174,7 @@
                                         "Check_Malware_or_Phishing_is_true": {
                                             "actions": {
                                                 "Set_IPQS_Reputation_Variable_Critical": {
-                                                    "runAfter": {},
+                                                    "runAfter": {""},
                                                     "type": "SetVariable",
                                                     "inputs": {
                                                         "name": "ipqs_reputation",
@@ -192,7 +192,7 @@
                                                     "Check_Risk_Score_is_greater_than_or_equal_to_90": {
                                                         "actions": {
                                                             "Set_IPQS_Reputation_Variable_High_Risk": {
-                                                                "runAfter": {},
+                                                                "runAfter": {""},
                                                                 "type": "SetVariable",
                                                                 "inputs": {
                                                                     "name": "ipqs_reputation",
@@ -200,13 +200,13 @@
                                                                 }
                                                             }
                                                         },
-                                                        "runAfter": {},
+                                                        "runAfter": {""},
                                                         "else": {
                                                             "actions": {
                                                                 "Check_Risk_Score_is_between_80_and_89": {
                                                                     "actions": {
                                                                         "Set_IPQS_Reputation_Variable_MODERATE_Risk": {
-                                                                            "runAfter": {},
+                                                                            "runAfter": {""},
                                                                             "type": "SetVariable",
                                                                             "inputs": {
                                                                                 "name": "ipqs_reputation",
@@ -214,13 +214,13 @@
                                                                             }
                                                                         }
                                                                     },
-                                                                    "runAfter": {},
+                                                                    "runAfter": {""},
                                                                     "else": {
                                                                         "actions": {
                                                                             "Check_Risk_Score_is_between_70_and_79": {
                                                                                 "actions": {
                                                                                     "Set_IPQS_Reputation_Variable_Low_Risk": {
-                                                                                        "runAfter": {},
+                                                                                        "runAfter": {""},
                                                                                         "type": "SetVariable",
                                                                                         "inputs": {
                                                                                             "name": "ipqs_reputation",
@@ -228,13 +228,13 @@
                                                                                         }
                                                                                     }
                                                                                 },
-                                                                                "runAfter": {},
+                                                                                "runAfter": {""},
                                                                                 "else": {
                                                                                     "actions": {
                                                                                         "Check_Risk_Score_is_between_55_and_69": {
                                                                                             "actions": {
                                                                                                 "Set_IPQS_Reputation_Variable_Suspicious": {
-                                                                                                    "runAfter": {},
+                                                                                                    "runAfter": {""},
                                                                                                     "type": "SetVariable",
                                                                                                     "inputs": {
                                                                                                         "name": "ipqs_reputation",
@@ -242,13 +242,13 @@
                                                                                                     }
                                                                                                 }
                                                                                             },
-                                                                                            "runAfter": {},
+                                                                                            "runAfter": {""},
                                                                                             "else": {
                                                                                                 "actions": {
                                                                                                     "Check_Risk_Score_is_less_than_or_equal_to_54": {
                                                                                                         "actions": {
                                                                                                             "Set_IPQS_Reputation_Variable_Clean": {
-                                                                                                                "runAfter": {},
+                                                                                                                "runAfter": {""},
                                                                                                                 "type": "SetVariable",
                                                                                                                 "inputs": {
                                                                                                                     "name": "ipqs_reputation",
@@ -256,7 +256,7 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
-                                                                                                        "runAfter": {},
+                                                                                                        "runAfter": {""},
                                                                                                         "expression": {
                                                                                                             "and": [
                                                                                                                 {
@@ -376,7 +376,7 @@
                                             }
                                         },
                                         "Set_Malware_Valriable": {
-                                            "runAfter": {},
+                                            "runAfter": {""},
                                             "type": "SetVariable",
                                             "inputs": {
                                                 "name": "is_malware",
@@ -496,7 +496,7 @@
                                     }
                                 },
                                 "Set_host_name_variable": {
-                                    "runAfter": {},
+                                    "runAfter": {""},
                                     "type": "SetVariable",
                                     "inputs": {
                                         "name": "host_name",
@@ -689,7 +689,7 @@
                             }
                         }
                     },
-                    "outputs": {}
+                    "outputs": {""}
                 },
                 "parameters": {
                     "$connections": {
