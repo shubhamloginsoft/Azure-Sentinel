@@ -26,7 +26,7 @@
 			"name": "[variables('AzureSentinelConnectionName')]",
 			"location": "[resourceGroup().location]",
 			"properties": {
-				"customParameterValues": {},
+				"customParameterValues": {""},
 				"api": {
 					"id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azuresentinel')]"
 				}
@@ -39,7 +39,7 @@
 			"location": "[resourceGroup().location]",
 			"properties": {
 				"displayName": "[parameters('UserName')]",
-				"customParameterValues": {},
+				"customParameterValues": {""},
 				"api": {
 					"id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/ipqsfraudandriskscor')]"
                 }
@@ -61,7 +61,7 @@
                     "contentVersion": "1.0.0.0",
                     "parameters": {
                         "$connections": {
-                            "defaultValue": {},
+                            "defaultValue": {""},
                             "type": "Object"
                         }
                     },
@@ -196,7 +196,7 @@
                             }
                         },
                         "Entities_-_Get_Accounts": {
-                            "runAfter": {},
+                            "runAfter": {""},
                             "type": "ApiConnection",
                             "inputs": {
                                 "body": "@triggerBody()?['Entities']",
@@ -271,7 +271,7 @@
                                         "Check_Disposable": {
                                             "actions": {
                                                 "IPQS_Reputation_Variable_CRITICAL": {
-                                                    "runAfter": {},
+                                                    "runAfter": {""},
                                                     "type": "SetVariable",
                                                     "inputs": {
                                                         "name": "ipqs_reputation",
@@ -289,7 +289,7 @@
                                                     "Check_Fraud_Score_is_100": {
                                                         "actions": {
                                                             "IPQS_Reputation_Variable_HIGH_RISK": {
-                                                                "runAfter": {},
+                                                                "runAfter": {""},
                                                                 "type": "SetVariable",
                                                                 "inputs": {
                                                                     "name": "ipqs_reputation",
@@ -297,13 +297,13 @@
                                                                 }
                                                             }
                                                         },
-                                                        "runAfter": {},
+                                                        "runAfter": {""},
                                                         "else": {
                                                             "actions": {
                                                                 "Check_Fraud_Score_is_in_between_88_and_99": {
                                                                     "actions": {
                                                                         "IPQS_Reputation_Variable_MODERATE_RISK": {
-                                                                            "runAfter": {},
+                                                                            "runAfter": {""},
                                                                             "type": "SetVariable",
                                                                             "inputs": {
                                                                                 "name": "ipqs_reputation",
@@ -311,13 +311,13 @@
                                                                             }
                                                                         }
                                                                     },
-                                                                    "runAfter": {},
+                                                                    "runAfter": {""},
                                                                     "else": {
                                                                         "actions": {
                                                                             "Check_Fraud_Score_is_in_between_80_and_87": {
                                                                                 "actions": {
                                                                                     "IPQS_Reputation_Variable_LOW_RISK": {
-                                                                                        "runAfter": {},
+                                                                                        "runAfter": {""},
                                                                                         "type": "SetVariable",
                                                                                         "inputs": {
                                                                                             "name": "ipqs_reputation",
@@ -325,13 +325,13 @@
                                                                                         }
                                                                                     }
                                                                                 },
-                                                                                "runAfter": {},
+                                                                                "runAfter": {""},
                                                                                 "else": {
                                                                                     "actions": {
                                                                                         "Check_Valid": {
                                                                                             "actions": {
                                                                                                 "IPQS_Reputation_Variable_SUSPICIOUS": {
-                                                                                                    "runAfter": {},
+                                                                                                    "runAfter": {""},
                                                                                                     "type": "SetVariable",
                                                                                                     "inputs": {
                                                                                                         "name": "ipqs_reputation",
@@ -339,13 +339,13 @@
                                                                                                     }
                                                                                                 }
                                                                                             },
-                                                                                            "runAfter": {},
+                                                                                            "runAfter": {""},
                                                                                             "else": {
                                                                                                 "actions": {
                                                                                                     "Check_Fraud_Score_is_less_than_or_equal_to_79": {
                                                                                                         "actions": {
                                                                                                             "IPQS_Reputation_Variable_CLEAN": {
-                                                                                                                "runAfter": {},
+                                                                                                                "runAfter": {""},
                                                                                                                 "type": "SetVariable",
                                                                                                                 "inputs": {
                                                                                                                     "name": "ipqs_reputation",
@@ -353,7 +353,7 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
-                                                                                                        "runAfter": {},
+                                                                                                        "runAfter": {""},
                                                                                                         "expression": {
                                                                                                             "and": [
                                                                                                                 {
@@ -461,7 +461,7 @@
                                             }
                                         },
                                         "Set_Fraud_Score": {
-                                            "runAfter": {},
+                                            "runAfter": {""},
                                             "type": "SetVariable",
                                             "inputs": {
                                                 "name": "email_fraud_score",
@@ -569,7 +569,7 @@
                                     }
                                 },
                                 "Setting_Accounts_Name_Variable": {
-                                    "runAfter": {},
+                                    "runAfter": {""},
                                     "type": "SetVariable",
                                     "inputs": {
                                         "name": "account_name",
@@ -727,7 +727,7 @@
                             }
                         }
                     },
-                    "outputs": {}
+                    "outputs": {""}
                 },
                 "parameters": {
                     "$connections": {
